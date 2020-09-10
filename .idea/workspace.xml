@@ -20,18 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2abe68c0-7fb8-4640-a14e-5e0771313f76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/UserController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/dberrorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/UserRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/TypeUserController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/typeUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/dberrorHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Enterprise.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Enterprise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TypeUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/TypeUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/UserRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +47,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -57,6 +64,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -98,7 +107,10 @@
       <workItem from="1597376172834" duration="4550000" />
       <workItem from="1598065465753" duration="1635000" />
       <workItem from="1598210695960" duration="598000" />
-      <workItem from="1599435869982" duration="4589000" />
+      <workItem from="1599435869982" duration="10416000" />
+      <workItem from="1599526448255" duration="4915000" />
+      <workItem from="1599574087077" duration="3597000" />
+      <workItem from="1599611446230" duration="16070000" />
     </task>
     <servers />
   </component>
@@ -116,6 +128,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1259" height="192" key="GridCell.Tab.0.bottom" timestamp="1597458853208">
@@ -138,6 +153,10 @@
       <screen x="55" y="-745" width="1360" height="745" />
     </state>
     <state x="244" y="-734" key="SettingsEditor/55.-745.1360.745/0.23.1280.777@55.-745.1360.745" timestamp="1597376983338" />
+    <state x="348" y="150" width="584" height="522" key="find.popup" timestamp="1599529518410">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="348" y="150" width="584" height="522" key="find.popup/55.-745.1360.745/0.23.1280.777@0.23.1280.777" timestamp="1599529518410" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1599437489042">
       <screen x="55" y="-745" width="1360" height="745" />
     </state>

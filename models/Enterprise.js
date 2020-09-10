@@ -7,4 +7,6 @@ const EnterpriseSchema = new Schema({
     direccion: {type: String, required: true}
 })
 
-module.exports = Enterprise = mongoose.model('type_users', EnterpriseSchema)
+
+const Enterprise = mongoose.model('enterprise', EnterpriseSchema)
+module.exports = Enterprise
