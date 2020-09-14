@@ -2,35 +2,34 @@ const models = require('../models')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 10
+const token = require('../services/token')
 
 process.env.SECRET_KEY = 'secret'
 
 async function login(req, res, next) {
   try {
-    models.User.findOne({rut: req.body.rut}).then(userRut => {
-
-      if (userRut) {
-        if (userRut.estado === 0) {
-          res.status(200).json({error: 'Usuario desactivado'})
-        } else {
-          if (bcrypt.compareSync(req.body.password, userRut.password)) {
-            const payload = {
-              _id: req.body._id,
-              nombre: req.body.nombre,
-              apellido: req.body.apellido,
-              email: req.body.email,
-              tipo_usuario: req.body.tipo_usuario
-            }
-            let token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: 1440})
-            res.status(200).json({token: token})
+    await models.User.findOne({rut: req.body.rut})
+      .populate('type_users', {nombre: 1})
+      .then(user => {
+        console.log(user)
+        if (user) {
+          if (user.estado === 0) {
+            res.status(200).json({error: 'Usuario desactivado'})
           } else {
-            res.status(200).json({error: 'Contraseña incorrecta'})
+            if (bcrypt.compareSync(req.body.password, user.password)) {
+              token.encode(user).then(tokenReturn => {
+                res.status(200).json({user, tokenReturn})
+              }).catch(reason => {
+                console.log(reason)
+              })
+            } else {
+              res.status(200).json({error: 'Contraseña incorrecta'})
+            }
           }
+        } else {
+          res.status(200).json({error: 'Usuario no esta registrado'})
         }
-      } else {
-        res.status(200).json({error: 'Usuario no esta registrado'})
-      }
-    })
+      })
   } catch (e) {
     res.status(500).json({
       message: 'Ocurrio un error'

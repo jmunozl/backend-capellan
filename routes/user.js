@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 const cors = require('cors')
 const {add, login, list, update} = require('../controllers/UserController')
-
+const auth = require('../middlewares/auth')
 
 router.use(cors())
 
-router.post('/add', ((req, res, next) => {
+router.post('/add', auth.verifyAdmin, ((req, res, next) => {
   try {
     const response = add(req, res, next)
     response.then(() => {
@@ -28,7 +28,7 @@ router.post('/login', ((req, res, next) => {
   }
 }))
 
-router.get('/list', (req, res, next) => {
+router.get('/list', auth.verifyAdmin, (req, res, next) => {
   try {
     const response = list(req, res, next)
     response.then(() => {
@@ -39,7 +39,7 @@ router.get('/list', (req, res, next) => {
   }
 })
 
-router.put('/update', (req, res, next) => {
+router.put('/update', auth.verifyAdmin, (req, res, next) => {
   try {
     const response = update(req, res, next)
     response.then(() => {

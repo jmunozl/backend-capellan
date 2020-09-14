@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2abe68c0-7fb8-4640-a14e-5e0771313f76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middlewares/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/token.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +66,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/middlewares" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -95,6 +104,7 @@
       <workItem from="1599526448255" duration="4915000" />
       <workItem from="1599574087077" duration="3597000" />
       <workItem from="1599611446230" duration="16780000" />
+      <workItem from="1600032437172" duration="8425000" />
     </task>
     <servers />
   </component>
@@ -145,5 +155,9 @@
       <screen x="55" y="-745" width="1360" height="745" />
     </state>
     <state width="600" height="440" key="javadoc.popup/55.-745.1360.745/0.23.1280.777@55.-745.1360.745" timestamp="1599437489042" />
+    <state x="282" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1600032633339">
+      <screen x="0" y="23" width="1236" height="777" />
+    </state>
+    <state x="282" y="124" width="670" height="676" key="search.everywhere.popup/55.-745.1360.745/0.23.1236.777@0.23.1236.777" timestamp="1600032633339" />
   </component>
 </project>
