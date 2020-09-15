@@ -1,9 +1,7 @@
 const models = require('../models')
-const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 10
 const token = require('../services/token')
-
 process.env.SECRET_KEY = 'secret'
 
 async function login(req, res, next) {
@@ -29,48 +27,6 @@ async function login(req, res, next) {
         } else {
           res.status(200).json({error: 'Usuario no esta registrado'})
         }
-      })
-  } catch (e) {
-    res.status(500).json({
-      message: 'Ocurrio un error'
-    })
-    next(e)
-  }
-}
-
-async function add(req, res, next) {
-  try {
-    const userData = {
-      rut: req.body.rut,
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      email: req.body.email,
-      password: req.body.password,
-      type_users: req.body.type_users
-    }
-
-    await models.User.findOne({rut: userData.rut})
-      .then(userRut => {
-        if (!userRut) {
-          models.User.findOne({email: userData.email}).then(userEmail => {
-            if (!userEmail) {
-              bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                userData.password = hash
-                models.User.create(userData).then(user => {
-                  res.status(201).json({status: user.rut + ': Usuario creado'})
-                }).catch(err => {
-                  res.json({'Error': err})
-                })
-              })
-            } else {
-              res.status(200).json({err: 'Email ' + userEmail.email + ' ya esta registrado'})
-            }
-          })
-        } else {
-          res.status(200).json({err: 'Rut ' + user.rut + ' ya esta registrado'})
-        }
-      }).catch(err => {
-        res.status(500).json({'Error': err})
       })
   } catch (e) {
     res.status(500).json({
@@ -124,6 +80,49 @@ async function update(req, res, next) {
       res.status(500).json({'Error': err})
     })
 
+  } catch (e) {
+    res.status(500).json({
+      message: 'Ocurrio un error'
+    })
+    next(e)
+  }
+}
+
+
+async function add(req, res, next) {
+  try {
+    const userData = {
+      rut: req.body.rut,
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      email: req.body.email,
+      password: req.body.password,
+      type_users: req.body.type_users
+    }
+
+    await models.User.findOne({rut: userData.rut})
+      .then(userRut => {
+        if (!userRut) {
+          models.User.findOne({email: userData.email}).then(userEmail => {
+            if (!userEmail) {
+              bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+                userData.password = hash
+                models.User.create(userData).then(user => {
+                  res.status(201).json({status: user.rut + ': Usuario creado'})
+                }).catch(err => {
+                  res.json({'Error': err})
+                })
+              })
+            } else {
+              res.status(200).json({err: 'Email ' + userEmail.email + ' ya esta registrado'})
+            }
+          })
+        } else {
+          res.status(200).json({err: 'Rut ' + user.rut + ' ya esta registrado'})
+        }
+      }).catch(err => {
+        res.status(500).json({'Error': err})
+      })
   } catch (e) {
     res.status(500).json({
       message: 'Ocurrio un error'

@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 const cors = require('cors')
 const {add, list} = require('../controllers/TypeUserController')
-
+const auth = require('../middlewares/auth')
 
 router.use(cors())
 
-router.post('/add', ((req, res, next) => {
+router.post('/add',auth.verifyAdmin, ((req, res, next) => {
   try {
     const response = add(req, res, next)
     response.then(() => {

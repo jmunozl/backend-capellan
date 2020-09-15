@@ -1,5 +1,25 @@
 const models = require('../models')
 
+async function list(req, res, next) {
+  try {
+    await models.TypeUser.find({}, {__v: 0, createAt: 0})
+      .then(userList => {
+        if (userList.length > 0) {
+          res.status(200).json({users: userList})
+        } else {
+          res.status(200).json({err: 'No existen tipos usuarios registrados'})
+        }
+      }).catch(err => {
+        console.log(err)
+        res.status(500).json({'Error': err})
+      })
+  } catch (e) {
+    res.status(500).json({
+      message: 'Ocurrio un error'
+    })
+    next(e)
+  }
+}
 
 async function add(req, res, next) {
   try {
@@ -9,10 +29,7 @@ async function add(req, res, next) {
 
     await models.TypeUser.findOne({nombre: TypeUserData.nombre})
       .then(TypeUser => {
-        console.log('aca')
-        console.log(TypeUser)
         if (!TypeUser) {
-          console.log('aca2')
           models.TypeUser.create(TypeUserData).then(user => {
             res.status(201).json({status: ' Tipo Usuario ' + user.nombre + ' creado'})
           }).catch(err => {
@@ -32,26 +49,5 @@ async function add(req, res, next) {
   }
 }
 
-async function list(req, res, next) {
-  try {
-    await models.TypeUser.find({}, {__v: 0,createAt:0})
-      .then(userList => {
-        if (userList.length > 0) {
-          res.status(200).json({users: userList})
-        } else {
-          res.status(200).json({err: 'No existen tipos usuarios registrados'})
-        }
-      }).catch(err => {
-        console.log(err)
-        res.status(500).json({'Error': err})
-      })
-  } catch (e) {
-    res.status(500).json({
-      message: 'Ocurrio un error'
-    })
-    next(e)
-  }
-}
 
-
-module.exports = {add,list}
+module.exports = {add, list}
